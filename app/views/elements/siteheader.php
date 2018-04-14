@@ -14,7 +14,9 @@
 	</head>
 	<body>
 	<div class="container">
-	   <div class="jumboTron"><h1>Juho kurssit</h1></div>
+	   <div class="jumboTron"><h1>Juho kurssit</h1>
+	   <a href="/skole-mvc/public/home/index/">Etusivu</a> > <a href="/skole-mvc/public/course/create">Luo uusi</a>
+	</div>
 	   <div class="container" id="container"></div>
 	</div>
 	<div class="container" id="container">
