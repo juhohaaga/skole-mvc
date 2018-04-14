@@ -1,28 +1,27 @@
 <?php
-/*
-$servername = "localhost";
-$username = "username";
-$password = "password";
 
+class mydbConnect {
+ 	public function mydbCon() {
+ 		
+		$conn = new mysqli('localhost', 'root', '', 'course-db');
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+		return $conn;
+	}
 
-$conn = new mysqli('localhost', 'root', '', 'course-db');
+	public function mydbCourse($id) {
+		$thisconn = mydbconnect::mydbCon();
+		$result = $thisconn->query('SELECT id, name, description FROM courses where id = ' . $id);
+		return $result;
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-*/
+	}
+	public function mydbCourses() {
+		$thisconn = mydbconnect::mydbCon();
+		$result = $thisconn->query('SELECT id, name FROM courses');
+		return $result;
+	}
 
-
-class dbconnect{
-    	public function connect(){
-        $host = 'localhost';
-        $user = 'root';
-        $pass = '';
-        $db = 'course-db';
-        $connection = mysqli_connect($host,$user,$pass,$db); 
-        return $connection;
-    }
 }
-
 
 ?>
