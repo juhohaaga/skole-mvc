@@ -4,14 +4,19 @@
 * Yhteydet:
 * mydbConnect luokan avulla yhteys kantaan, ja perus CRUD toiminnot jaettu nyt omiin funccareihin 
 * joita voi käyttää controllereissa suoraan
+*
+* Siivotaan myös syötteet tageista yms.
 */
 
 
 //
-// Syötteiden siivoaminen ja varmistus
+// SYÖTTEIDEN SIIVOAMINEN
 //
 class myCleanup {
-
+  public function CleanValues($uncleaned) {
+  	$cleaned = strip_tags($unclened);
+  	return $cleaned;
+  }
 }
 
 //
@@ -35,6 +40,8 @@ class mydbConnect {
 	//READ
 	//
 	public function mydbCourse($id) {
+		$id = myCleanup::CleanValues($id);
+
 		$thisconn = mydbconnect::mydbCon();
 		$result = $thisconn->query('SELECT id, name, description FROM courses where id = ' . $id);
 		return $result;
@@ -60,6 +67,10 @@ class mydbConnect {
 	public function mydbInsertCourse($id, $name, $desc) {
 		$thisconn = mydbconnect::mydbCon();
 
+		$id = myCleanup::CleanValues($id);
+		$name = myCleanup::CleanValues($name);
+		$desc = myCleanup::CleanValues($desc);
+
 		$sql = "INSERT INTO courses (id, name, description)
 		VALUES ('$id', '$name', '$desc')";
 
@@ -75,6 +86,9 @@ class mydbConnect {
 	//DELETE
 	//
 	public function mydbDeleteCourse($id) {
+
+		$id = myCleanup::CleanValues($id);
+
 		$thisconn = mydbconnect::mydbCon();
 		$sql = $thisconn->query('DELETE FROM courses WHERE id = ' . $id);
 	}
