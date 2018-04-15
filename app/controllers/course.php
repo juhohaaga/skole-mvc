@@ -28,6 +28,12 @@ class Course extends Controller {
  		   
 	}
 
+	//DELETE
+	public function delete($cid = '') {
+		$course->cid = $cid;
+		$result = mydbConnect::mydbDeleteCourse($course->cid);
+		echo "Kurssi poistettu!";
+	}	
 
 	//Näytetään lomake
 	public function create() {
@@ -36,12 +42,17 @@ class Course extends Controller {
 
 
 	//Tallennetaan uusi
-
+	// Käytetään tässä parametrejä hassusti
+	
 	public function insert() {
-	//	$course->name = $name;
-	//	$course->description = $description;
-		//mydbConnect::mydbInsertCourse($course->cid, $course->name, $course->description);
+		$course->name = ($_POST['course-name']);
+		$course->description = ($_POST['course-desc']);
+		$course->id = mydbConnect::mydbGetId();
+		$course->id++; 
 
+		
+		$result = mydbConnect::mydbInsertCourse($course->id, $course->name, $course->description);
+		
 		echo "Kiitos!";
 
 	}

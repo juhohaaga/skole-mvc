@@ -8,6 +8,6 @@
 
       <?php echo $data['desc']; ?>
     </p>
-    <a href="#!" class="btn btn-primary">Muokkaa</a>
+    <a href="/skole-mvc/public/course/delete/<?php echo $data['cid']; ?>" class="btn btn-primary">Poista</a>
   </div>
 </div>

@@ -24,29 +24,31 @@ class mydbConnect {
 	public function mydbGetId() {
 		$thisconn = mydbconnect::mydbCon();
 		$result = $thisconn->query('SELECT id FROM courses order by id desc limit 1');
-		return $result;
+		while($row = $result->fetch_assoc()) {
+			$maxid = $row["id"];
+		}
+		return $maxid;
 	}
-/*
-	//UPDATE
-	public function mydbUpdateCourse() {
-		$thisconn = mydbconnect::mydbCon();
-		$result = $thisconn->query('SELECT id, name FROM courses');
-		//return $result;
-	}
-	
 	//INSERT
-	public function mydbInsertCourse() {
+	public function mydbInsertCourse($id, $name, $desc) {
 		$thisconn = mydbconnect::mydbCon();
-		//$result = $thisconn->query('SELECT id, name FROM courses');
-		return true;
+
+		$sql = "INSERT INTO courses (id, name, description)
+		VALUES ('$id', '$name', '$desc')";
+
+		if ($thisconn->query($sql) === TRUE) {
+ 			return true;
+		} else {
+    		echo "Virhe: " . $sql . "<br>" . $thisconn->error;
+    		return false;
+		}
 	}
 	//DELETE
-	public function mydbInsertCourse() {
+	public function mydbDeleteCourse($id) {
 		$thisconn = mydbconnect::mydbCon();
-		//$result = $thisconn->query('SELECT id, name FROM courses');
-		return $result;
+		$sql = $thisconn->query('DELETE FROM courses WHERE id = ' . $id);
 	}
-	*/
+
 
 
 
