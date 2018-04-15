@@ -2,7 +2,6 @@
 
 
 Class User {
-
 	public $name;
 }
 

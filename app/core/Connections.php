@@ -1,6 +1,27 @@
 <?php
 
+/*
+* Yhteydet:
+* mydbConnect luokan avulla yhteys kantaan, ja perus CRUD toiminnot jaettu nyt omiin funccareihin 
+* joita voi käyttää controllereissa suoraan
+*/
+
+
+//
+// Syötteiden siivoaminen ja varmistus
+//
+class myCleanup {
+
+}
+
+//
+// TIETOKANTA
+//
 class mydbConnect {
+ 
+	//
+	// Yhteyden luonti
+	//
  	public function mydbCon() {
  		
 		$conn = new mysqli('localhost', 'root', '', 'course-db');
@@ -9,7 +30,10 @@ class mydbConnect {
 		}
 		return $conn;
 	}
+	
+	//
 	//READ
+	//
 	public function mydbCourse($id) {
 		$thisconn = mydbconnect::mydbCon();
 		$result = $thisconn->query('SELECT id, name, description FROM courses where id = ' . $id);
@@ -29,7 +53,10 @@ class mydbConnect {
 		}
 		return $maxid;
 	}
+	
+	//
 	//INSERT
+	//
 	public function mydbInsertCourse($id, $name, $desc) {
 		$thisconn = mydbconnect::mydbCon();
 
@@ -43,15 +70,14 @@ class mydbConnect {
     		return false;
 		}
 	}
+	
+	//
 	//DELETE
+	//
 	public function mydbDeleteCourse($id) {
 		$thisconn = mydbconnect::mydbCon();
 		$sql = $thisconn->query('DELETE FROM courses WHERE id = ' . $id);
 	}
-
-
-
-
 }
 
 ?>

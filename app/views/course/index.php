@@ -1,3 +1,10 @@
+<?php
+
+/*
+* Kurssin perus-view, template yksittäiselle kurssille
+*/
+
+?>
 <p><a href="/skole-mvc/public/home/index/" class="btn btn-primary">Takaisin</a></p>
 
 <div class="card">

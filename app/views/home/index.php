@@ -1,4 +1,12 @@
 
+<?php
+
+/*
+* Template etusivulle
+*/
+
+?>
+
 <div class="board">
 	<div class="row">
 		<table class="table">

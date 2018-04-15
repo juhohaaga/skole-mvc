@@ -1,5 +1,10 @@
 <?php
 
+/*
+* Core-toiminto, jossa käsitellään osoiterivi
+* Valitaan aina oikea controller, ja tarkistetaan että ne on olemassa
+*/
+
 class App {
 
 	protected $controller = 'home';

@@ -1,3 +1,11 @@
+<?php
+
+/*
+* Template lomakkeelle
+*/
+
+?>
+
 <form action="/skole-mvc/public/course/insert" method="post">
   <div class="form-group">
     <label for="formGroupExampleInput">Kurssin nimi</label>

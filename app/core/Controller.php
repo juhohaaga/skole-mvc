@@ -1,5 +1,9 @@
 <?php
 
+/*
+* Modelin ja viewin valinta, controllerit extendaa tätä
+*/
+
 class Controller {
 
 	protected function model($model) {
