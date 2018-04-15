@@ -25,6 +25,7 @@ class Course extends Controller {
 		
 		//Haetaan yhden kurssin tiedot
 		$result = mydbConnect::mydbCourse($course->cid);
+
 		if ($result->num_rows > 0) {
    			while($row = $result->fetch_assoc()) {
    			 	$course->name = $row["name"];

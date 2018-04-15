@@ -14,7 +14,7 @@
 //
 class myCleanup {
   public function CleanValues($uncleaned) {
-  	$cleaned = strip_tags($unclened);
+  	$cleaned = strip_tags($uncleaned);
   	return $cleaned;
   }
 }
