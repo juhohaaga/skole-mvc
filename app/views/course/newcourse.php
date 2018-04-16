@@ -15,5 +15,5 @@
     <label for="formGroupExampleInput2">Kurssin kuvaus</label>
     <input name="course-desc" type="text" height="2" class="form-control" id="formGroupExampleInput2" placeholder="Kuvaus">
   </div>
- <input type="submit">Lähetä</input>
+ <input type="submit" value="Lähetä"/>
 </form>
