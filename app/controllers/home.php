@@ -10,7 +10,7 @@ class Home extends Controller {
 	public function index() {
 	
 		$this->model('Course');
-		$user->name = $name;
+		//$user->name = $name;
 	
 		$result = mydbConnect::mydbCourses();
 		if ($result->num_rows > 0) {
